@@ -6,15 +6,15 @@ type UserInfo = {
     age:number      // we can not provide default property in type aliases
 }
 
-function createUser(user:UserInfo):void {
+function createuser(user:UserInfo):void {
     console.log(`${user.name}'s (id-${user.id}) age is ${user.age}`);
 }
 
-createUser({name: "dev", id:2, age:22})
+createuser({name: "dev", id:2, age:22})
 
 
 // TYPE ALIASES WITH INTERSECTION
-type User = {
+type User1= {
   name: string;
   age: number;
 };
@@ -24,7 +24,7 @@ type Address = {
   country: string;
 };
 
-type UserWithAddress = User & Address;    // here when we pass any type it has to we both types not a single one is missing
+type UserWithAddress = User1 & Address;    // here when we pass any type it has to we both types not a single one is missing
 
 function getUserDetails(user: UserWithAddress): string {
   return `${user.name} (${user.age} years old), lives in ${user.city}, ${user.country}`;
@@ -43,8 +43,8 @@ console.log(getUserDetails(user));
 
 // ENUMS AND TUPLES
 
-const User:[readonly string[], number, number? ] = [["Joel"], 11]     // TUPLES with readonly and optional 
-console.log(User);
+const User2:[readonly string[], number, number? ] = [["Joel"], 11]     // TUPLES with readonly and optional 
+console.log(User2);
 
 
 enum OrderStatus {
